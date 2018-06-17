@@ -30,14 +30,16 @@ d3.json('arcs.json').then(function(data){
 		        radiusMinPixels: 1,
 		        getPosition: d => d.positon,
 		        getColor: d => d.color,
-		        getRadius: d => 10000,
-		        opacity: 0.3
+		        getRadius: d => 7000,
+		        opacity: 0.7
 	        }),
 	        new deck.ArcLayer({
 				id: 'arc',
 				data: arcs,
 				getSourcePosition: d => d.source,
 				getTargetPosition: d => d.target,
+				getSourceColor: d => [200, 200, 200],
+				getTargetColor: d => d.color,
 				strokeWidth: 3
 			})
       ]
