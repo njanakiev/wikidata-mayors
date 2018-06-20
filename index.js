@@ -30,7 +30,7 @@ d3.json('arcs.json').then(function(data){
 		        radiusMinPixels: 1,
 		        getPosition: d => d.positon,
 		        getColor: d => d.color,
-		        getRadius: d => 7000,
+		        getRadius: d => 3000,
 		        opacity: 0.7
 	        }),
 	        new deck.ArcLayer({
@@ -38,10 +38,10 @@ d3.json('arcs.json').then(function(data){
 				data: arcs,
 				getSourcePosition: d => d.source,
 				getTargetPosition: d => d.target,
-				getSourceColor: d => [200, 200, 200],
+				getSourceColor: d => [150, 150, 150],
 				getTargetColor: d => d.color,
 				strokeWidth: 3
 			})
-      ]
+      	]
     });
 });
