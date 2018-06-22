@@ -22,7 +22,7 @@ SELECT DISTINCT ?country ?countryLabel WHERE {
 mayor_query = """
 SELECT DISTINCT 
   ?city ?cityLabel ?city_coordinates ?population 
-  ?mayor ?mayorLabel ?genderLabel ?birth ?start_date
+  ?mayor ?mayorLabel ?genderLabel ?birth ?age ?start_date ?duration
   ?birth_country ?birth_countryLabel 
   ?birth_city ?birth_cityLabel ?birth_city_coordinates 
 WHERE {{
@@ -34,8 +34,12 @@ WHERE {{
   
   ?statement ps:P6 ?mayor.
   ?statement pq:P580 ?start_date.
+  BIND(year(now()) - year(?start_date) AS ?duration)
   
-  OPTIONAL {{ ?mayor wdt:P569 ?birth. }}
+  OPTIONAL {{ 
+    ?mayor wdt:P569 ?birth. 
+    BIND(year(now()) - year(?birth) AS ?age)
+  }}
   OPTIONAL {{ ?mayor wdt:P21 ?gender. }}
   
   # Remove all mayors that have an end time
@@ -69,18 +73,6 @@ for index, (country, country_label, country_code) in df_countries.iterrows():
     print(country_label, country_code)
     df = utils.wikidata_query(mayor_query.format(country_code))
     
-    # Replace unknown birth dates and calculate age
-    df['birth'] = df['birth'].apply(
-        lambda s : None if ((s is None) or s.startswith('t')) else s)
-    df['birth'] = pd.to_datetime(df['birth'])
-    df['age'] = df['birth'].apply(lambda x: datetime.now().year - x.year)
-    
-    # Replace unknown start dates and calculate duration
-    df['start_date'] = df['start_date'].apply(
-        lambda s : None if ((s is None) or s.startswith('t')) else s)
-    df['start_date'] = pd.to_datetime(df['start_date'])
-    df['duration'] = df['start_date'].apply(lambda x: datetime.now().year - x.year)
-    
     df.insert(0, 'country', country_label)
     print('Entries :', len(df))
     print()
@@ -96,9 +88,6 @@ df[['city_lon', 'city_lat']] = df[['city_lon', 'city_lat']].astype(float)
 df[['birth_city_lon', 'birth_city_lat']] = df['birth_city_coordinates'].str[6:-1].str.split(' ', expand=True)
 df[['birth_city_lon', 'birth_city_lat']] = df[['birth_city_lon', 'birth_city_lat']].astype(float)
 
-# Drop original coordinates columns
-df.drop(columns=['city_coordinates', 'birth_city_coordinates'], inplace=True)
-
 # Calculate distance between city and birth city
 def calc_distance(row):
     lon0, lat0 = row['city_lon'], row['city_lat']
@@ -110,6 +99,9 @@ def calc_distance(row):
         return distance((lat0, lon0), (lat1, lon1)).m
         
 df['distance'] = df.apply(calc_distance, axis=1)
+
+# Drop original coordinates columns
+df.drop(columns=['city_coordinates', 'birth_city_coordinates'], inplace=True)
 
 # Show some information about the table
 print(df.info())
