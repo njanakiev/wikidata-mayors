@@ -1,5 +1,5 @@
 # Where do Mayors Come From?
-This project is the exploration of mayors in europe with Wikidata and Python. The data is an interactive visualization which is done with the help of [deck.gl](http://uber.github.io/deck.gl/#/). Each arc represents the birth place (gray) to the city they are mayor in (color) and the points represent mayors which are born in the same city where they hold their position.
+This project is the exploration of current mayors in europe with Wikidata and Python. The interactive data visualization is done with the help of [deck.gl](http://uber.github.io/deck.gl/#/). Each arc represents the birthplace (gray) to the city they are mayor in (color) and the points represent mayors which are born in the same city where they hold their position. Colors are used as a distinction between countries.
 
 ![screen](screen.png)
 
