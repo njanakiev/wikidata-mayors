@@ -21,7 +21,7 @@
       <meta name="twitter:creator" content="@njanakiev" />
 
       <script type="application/ld+json">
-      {"description":"This project is the exploration of mayors in europe with Wikidata and Python. The data is an interactive visualization which is done with the help of deck.gl. Each arc represents the birth place (gray) to the city they are mayor in (color) and the points represent mayors which are born in the same city where they hold their position.","author":{"@type":"Person","name":"Nikolai Janakiev"},"@type":"Website","url":"http://janakiev.com/wikidata-mayors/","image":"https://janakiev.com/wikidata-mayors/screen.png","headline":"Where do Mayors Come From?","mainEntityOfPage":{"@type":"WebPage","@id":"http://janakiev.com/wikidata-mayors/"},"@context":"http://schema.org"}</script>
+      {"description":"This project is the exploration of current mayors in Europe with Wikidata and Python. The interactive data visualization is done with deck.gl.","author":{"@type":"Person","name":"Nikolai Janakiev"},"@type":"Website","url":"http://janakiev.com/wikidata-mayors/","image":"https://janakiev.com/wikidata-mayors/screen.png","headline":"Where do Mayors Come From?","mainEntityOfPage":{"@type":"WebPage","@id":"http://janakiev.com/wikidata-mayors/"},"@context":"http://schema.org"}</script>
 
       <link rel="icon" href="favicon.ico" type="image/x-icon" />
       <script src="js/d3-fetch.v1.min.js"></script>
@@ -29,9 +29,53 @@
       <!--<script src="https://unpkg.com/deck.gl@~5.2.0/deckgl.min.js"></script>-->
       <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js"></script>
       <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css" rel="stylesheet" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+      <style type="text/css">
+        #container {
+          position: fixed;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          overflow: auto;
+          background-color: #000000;
+        }
+        #info {
+          font-family: "PT Sans", Helvetica, Arial, sans-serif;
+          font-size: 0.9em;
+          position: fixed;
+          top: 15px;
+          left: 15px;
+          width: 300px;
+          border: 1px solid #000000;
+          padding: 0px 20px 0px;
+          background-color: #FFFFFF;
+          opacity: 0.7;
+        }
+        h1 {
+          font-weight:normal;
+        }
+        a {
+          color: #555555;
+        }
+        ul {
+          padding-left: 15px;
+          padding-bottom: 15px;
+        }
+      </style>
   </head>
   <body>
-    <div id="container" style="width: 100vw; height: 100vh;"></div>
+    <div id="container">Test</div>
+    <div id="info">
+      <h1 id="header">Where do Mayors Come From?</h1>
+      <p>This project is the exploration of current mayors in Europe with <a href="https://www.wikidata.org/wiki/Wikidata:Main_Page">Wikidata</a> and Python. The interactive data visualization is done with <a href="http://deck.gl/">deck.gl</a>.</p>
+      <p>You can navigate the map with the cursor and rotate the map with pressed CTRL (or Command) key. Each arc represents the birthplace (gray) to the city they are mayor in (color) and the points represent mayors which are born in the same city where they hold their position. Colors are used as a distinction between countries.</p>
+      <ul>
+        <li><a href="https://github.com/njanakiev/wikidata-mayors/tree/gh-pages">Visualization Repository</a></li>
+        <li><a href="https://github.com/njanakiev/wikidata-mayors/tree/gh-pages">Project Repository</a></li>
+        <li><a href="https://github.com/njanakiev/wikidata-mayors/tree/master"> Where do Mayors Come From: Querying Wikidata with Python and SPARQL</a></li>
+      </ul>
+    </div>
     <script src="index.js"></script>
   </body>
 </html>

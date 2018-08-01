@@ -14,6 +14,7 @@ d3.json('arcs.json').then(function(data){
 	});
 
     new deck.DeckGL({
+	    container: 'container',
 	    mapboxAccessToken: '',
 	    mapStyle: 'https://free.tilehosting.com/styles/positron/style.json?key=U0iNgiZKlYdwvgs9UPm1',
 	    longitude: 8.682127,
