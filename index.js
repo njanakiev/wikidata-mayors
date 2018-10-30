@@ -16,7 +16,7 @@ d3.json('arcs.json').then(function(data){
     new deck.DeckGL({
 	    container: 'container',
 	    mapboxAccessToken: '',
-	    mapStyle: 'https://free.tilehosting.com/styles/positron/style.json?key=U0iNgiZKlYdwvgs9UPm1',
+	    mapStyle: 'https://free.tilehosting.com/styles/positron/style.json?key=3rAre62NVXBmI68Mcxxq',
 	    longitude: 8.682127,
 	    latitude: 50.110924,
 	    zoom: 3,
