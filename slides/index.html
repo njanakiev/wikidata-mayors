@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-<title>Queying and Explorring Wikidata</title>
+<title>Querying and Exploring Wikidata - Nikolai Janakiev</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11913,7 +11913,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Wikidata-is-a-Knowledge-Graph">Wikidata is a Knowledge Graph<a class="anchor-link" href="#Wikidata-is-a-Knowledge-Graph">&#182;</a></h1>
+<h2 id="Wikidata-is-a-Knowledge-Graph">Wikidata is a Knowledge Graph<a class="anchor-link" href="#Wikidata-is-a-Knowledge-Graph">&#182;</a></h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -11921,8 +11921,79 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<blockquote><p>Wikidata is a collaboratively edited knowledge base hosted by the Wikimedia Foundation. It is intended to provide a common source of data which can be used by Wikimedia projects such as Wikipedia, and by anyone else, under a public domain license. (<a href="https://en.wikipedia.org/wiki/Wikidata">Source</a>)</p>
-</blockquote>
+<p><img src="assets/knowledge_graph.png" alt="Knowledge Graph"></p>
+
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Semantic-Web-and-Linked-Data">Semantic Web and Linked Data<a class="anchor-link" href="#Semantic-Web-and-Linked-Data">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Extension of <em>World Wide Web</em> and a W3C standard</li>
+</ul>
+
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Timeline">Timeline<a class="anchor-link" href="#Timeline">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><strong>2001</strong> Semantic Web</li>
+</ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><strong>2006</strong> Linked Data (Tim Berners-Lee, W3C)</li>
+</ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><strong>2007</strong> DBPedia</li>
+<li><strong>2007</strong> Freebase (part of Google's Knowledge Graph)</li>
+</ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><strong>2012</strong> Wikidata <em>(<a href="https://foundation.wikimedia.org/wiki/Home">Wikimenda Foundation</a>)</em></li>
+</ul>
 
 </div>
 </div>
@@ -12010,7 +12081,21 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Query-Wikidata-API-with-Python">Query Wikidata API with Python<a class="anchor-link" href="#Query-Wikidata-API-with-Python">&#182;</a></h1>
+<h1 id="Example-Queries">Example Queries<a class="anchor-link" href="#Example-Queries">&#182;</a></h1><ul>
+<li><a href="https://query.wikidata.org/#%23Timeline%20of%20space%20probes%0A%23defaultView%3ATimeline%0ASELECT%20%3Fitem%20%3FitemLabel%20%3Flaunchdate%20%28SAMPLE%28%3Fimage%29%20AS%20%3Fimage%29%0AWHERE%0A%7B%0A%09%3Fitem%20wdt%3AP31%20wd%3AQ26529%20.%0A%20%20%20%20%3Fitem%20wdt%3AP619%20%3Flaunchdate%20.%0A%09SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22%20%7D%0A%20%20%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP18%20%3Fimage%20%7D%0A%7D%0AGROUP%20BY%20%3Fitem%20%3FitemLabel%20%3Flaunchdate">Timeline of Space Probes</a></li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Query-Wikidata-API-with-Python">Query Wikidata API with Python<a class="anchor-link" href="#Query-Wikidata-API-with-Python">&#182;</a></h1><ul>
+<li><a href="https://query.wikidata.org/sparql">https://query.wikidata.org/sparql</a></li>
+</ul>
+
 </div>
 </div>
 </div><div class="fragment">
@@ -12077,6 +12162,17 @@ a.anchor-link {
 </div>
 
 </div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Where-Do-Mayors-Come-From?">Where Do Mayors Come From?<a class="anchor-link" href="#Where-Do-Mayors-Come-From?">&#182;</a></h1><ul>
+<li><a href="https://janakiev.com/wikidata-mayors/">Where do Mayors Come From?</a></li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
